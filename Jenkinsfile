@@ -7,7 +7,7 @@ pipeline{
     stages{
         stage('Deploy to remote'){
             steps{
-                sh 'scp ${WORKSPACE}/* root@${staging_server}:/Projects/laravel-docker/'
+                sh 'scp -v -o StrictHostKeyChecking=no ${WORKSPACE}/* root@${staging_server}:/Projects/laravel-docker/'
             }
         }
     }
