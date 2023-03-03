@@ -17,7 +17,7 @@ pipeline {
     post {
         always {
             sshagent(['jenkins']) {
-                sh "ssh jenkins@${staging_server} 'cd /Projects/laravel-docker && docker-compose up -d'"
+                sh "ssh root@${staging_server} 'cd /Projects/laravel-docker && docker-compose up -d'"
             }
         }
     }
