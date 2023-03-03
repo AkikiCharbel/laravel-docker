@@ -1,14 +1,14 @@
 pipeline {
     agent any
     environment{
-        staging_server="52.86.91.204"
+        staging_server="ec2-44-211-125-23.compute-1.amazonaws.com"
     }
 
     stages {
         stage('Deploy to remote') {
             steps {
-                sshagent(credentials: ['aws-lab-2']) {
-                    sh "scp -v -o StrictHostKeyChecking=no ${WORKSPACE}/* ubuntu@${staging_server}:/Projects/laravel-docker/"
+                sshagent(credentials: ['final-project']) {
+                    sh "scp -v -o StrictHostKeyChecking=no ${WORKSPACE}/* ec2-user@${staging_server}:/Projects/laravel-docker/"
                 }
             }
         }
@@ -16,8 +16,8 @@ pipeline {
 
     post {
         always {
-            sshagent(credentials: ['aws-lab-2']) {
-                sh "ssh ubuntu@${staging_server} 'cd /Projects/laravel-docker && docker-compose up -d'"
+            sshagent(credentials: ['final-project']) {
+                sh "ssh ec2-user@${staging_server} 'cd /Projects/laravel-docker && docker-compose up -d'"
             }
         }
     }
