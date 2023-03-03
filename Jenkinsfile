@@ -8,7 +8,7 @@ pipeline {
         stage('Deploy to remote') {
             steps {
                 sshagent(credentials: ['final-project']) {
-                    sh "scp -v -o StrictHostKeyChecking=no ${WORKSPACE}/* ubuntu@${staging_server}:~/Project/laravel-docker/"
+                    sh "scp -r -v -o StrictHostKeyChecking=no ${WORKSPACE}/* ubuntu@${staging_server}:~/Project/laravel-docker/"
                 }
             }
         }
