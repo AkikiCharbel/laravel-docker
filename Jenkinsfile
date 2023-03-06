@@ -17,7 +17,7 @@ pipeline {
     post {
         always {
             sshagent(credentials: ['final-project']) {
-                sh "ssh ubuntu@${staging_server} 'cd ~/Project/laravel-docker && docker compose up -d && docker compose run --rm composer install && cp .env.example .env && docker compose run --rm app php artisan key:generate'"
+                sh "ssh ubuntu@${staging_server} 'cd ~/Project/laravel-docker && chmod 755 -R docker && docker compose up -d && docker compose run --rm composer install && cp .env.example .env && docker compose run --rm app php artisan key:generate'"
             }
         }
     }
