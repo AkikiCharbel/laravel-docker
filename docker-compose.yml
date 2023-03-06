@@ -76,7 +76,7 @@ services:
     web:
         container_name: laravel-web-docker
         image: nginx:stable-alpine
-        platform: linux/amd64
+        platform: linux/amd64/v8
         restart: always
         ports:
             - "80:80"
