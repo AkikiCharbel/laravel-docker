@@ -36,7 +36,7 @@ networks:
 services:
     app:
         container_name: laravel-app-docker
-        platform: linux/amd64
+        platform: linux/amd64/v8
         depends_on:
             - mysql
         networks:
