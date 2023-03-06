@@ -36,7 +36,6 @@ networks:
 services:
     app:
         container_name: laravel-app-docker
-        platform: linux/amd64/v8
         depends_on:
             - mysql
         networks:
@@ -76,7 +75,6 @@ services:
     web:
         container_name: laravel-web-docker
         image: nginx:stable-alpine
-        platform: linux/amd64/v8
         restart: always
         ports:
             - "80:80"

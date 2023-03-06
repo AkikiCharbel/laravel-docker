@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment{
-        staging_server="ec2-54-165-117-145.compute-1.amazonaws.com"
+        staging_server="ec2-3-227-17-44.compute-1.amazonaws.com"
     }
 
     stages {
